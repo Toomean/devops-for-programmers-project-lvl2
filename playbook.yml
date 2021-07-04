@@ -1,24 +1,9 @@
 ---
-- name: Devops Project \#2 Playbook
+- name: Devops Project \#2 Main Playbook
   hosts: all
   remote_user: root
-  roles:
-    - { role: datadog.datadog, become: yes }
   vars_files:
     - ./group_vars/webservers.yml
-    - ./group_vars/datadog.yml
-  vars:
-    datadog_api_key: "{{ datadog_api_key }}"
-    datadog_site: "datadoghq.eu"
-    datadog_checks:
-      http_check:
-        init_config:
-        instances:
-          - name: Application health check status
-            url: http://localhost:80
-            timeout: 5
-            method: GET
-
   tasks:
     - name: Install pip3
       apt:
@@ -50,6 +35,7 @@
           REDMINE_DB_PASSWORD: "{{ redmine_db_password }}"
           REDMINE_DB_DATABASE: "{{ redmine_db_database }}"
 
-    - name: Install and run Datadog agent.
-      include_role:
-        name: datadog.datadog
+- name: Start monitoring
+  import_playbook: monitoring.yml
+  vars:
+    datadog_api_key: "{{ lookup('file', './group_vars/datadog/api_key.yml') | from_yaml }}"
