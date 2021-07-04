@@ -1,3 +1,6 @@
 ---
+roles:
+  - name: datadog.datadog
+
 collections:
   - name: community.docker
