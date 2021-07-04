@@ -2,8 +2,6 @@
 - name: Devops Project \#2 Main Playbook
   hosts: all
   remote_user: root
-  vars_files:
-    - ./group_vars/webservers.yml
   tasks:
     - name: Install pip3
       apt:
@@ -36,6 +34,4 @@
           REDMINE_DB_DATABASE: "{{ redmine_db_database }}"
 
 - name: Start monitoring
-  import_playbook: monitoring.yml
-  vars:
-    datadog_api_key: "{{ lookup('file', './group_vars/datadog/api_key.yml') | from_yaml }}"
+  import_playbook: datadog.yml

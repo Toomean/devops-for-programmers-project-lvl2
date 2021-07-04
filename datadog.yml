@@ -1,0 +1,10 @@
+---
+- name: Devops Project \#2 Monitoring Playbook
+  hosts: webservers
+  remote_user: root
+  roles:
+    - { role: datadog.datadog, become: yes }
+  tasks:
+    - name: Install and run Datadog agent.
+      include_role:
+        name: datadog.datadog
