@@ -4,7 +4,7 @@ install-deps:
 	ansible-galaxy install -r requirements.yml
 
 run-playbook:
-	ansible-playbook -i inventory.ini playbook.yml --vault-password-file .ansible-secret
+	ansible-playbook -vv -i inventory.ini playbook.yml --vault-password-file .ansible-secret
 
 ansible-encrypt-string:
 	ansible-vault encrypt_string --vault-password-file .ansible-secret $(VALUE) --name $(NAME)
