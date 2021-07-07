@@ -5,4 +5,4 @@ roles:
 
 collections:
   - name: community.docker
-    version: 1.6.1
+    version: 1.8.0
