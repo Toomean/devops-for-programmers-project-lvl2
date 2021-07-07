@@ -1,5 +1,5 @@
 ---
-- name: Container present
+- name: Run Redmine Container
   community.docker.docker_container:
     name: redmine
     image: redmine:{{ redmine_version }}
