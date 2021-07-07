@@ -1,0 +1,15 @@
+- name: Install pip3
+  apt:
+    name:
+      - python3-pip
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Install python-docker
+  pip:
+    name:
+      - docker
+    state: present
+    version: "{{ docker_py_version }}"
+  become: yes

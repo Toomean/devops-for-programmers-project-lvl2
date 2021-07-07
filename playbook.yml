@@ -1,37 +1,6 @@
 ---
-- name: Devops Project \#2 Main Playbook
-  hosts: all
-  remote_user: root
-  tasks:
-    - name: Install pip3
-      apt:
-        name:
-          - python3-pip
-        state: present
-        update_cache: yes
-      become: yes
-
-    - name: Install python-docker
-      pip:
-        name:
-          - docker
-        state: present
-      become: yes
-
-    - name: Container present
-      community.docker.docker_container:
-        name: redmine
-        image: redmine:4.2.1-alpine
-        state: started
-        restart: yes
-        ports:
-          - 80:3000
-        env:
-          REDMINE_DB_POSTGRES: "{{ redmine_db_postgres }}"
-          REDMINE_DB_PORT: "{{ redmine_db_port }}"
-          REDMINE_DB_USERNAME: "{{ redmine_db_username }}"
-          REDMINE_DB_PASSWORD: "{{ redmine_db_password }}"
-          REDMINE_DB_DATABASE: "{{ redmine_db_database }}"
-
-- name: Start monitoring
-  import_playbook: datadog.yml
+- hosts: all
+  roles:
+    - webservers
+    - redmine
+    - monitoring
