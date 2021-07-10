@@ -1,3 +1,0 @@
-- name: Include Datadog role
-  include_role:
-    name: datadog.datadog

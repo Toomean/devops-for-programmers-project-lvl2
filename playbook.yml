@@ -15,5 +15,20 @@
 
   roles:
     - geerlingguy.pip
-    - redmine
-    - monitoring
+    # - datadog.datadog
+  
+  tasks:
+    - name: Create .env For Containers
+      template:
+        src: env.j2
+        dest: '.env'
+
+    - name: Run Redmine Container
+      docker_container:
+        name: redmine
+        image: redmine
+        state: started
+        restart: yes
+        published_ports:
+          - 80:{{ redmine_app_port }}
+        env_file: .env
