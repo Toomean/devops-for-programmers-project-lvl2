@@ -10,4 +10,4 @@
 #### Balancer info
 ![Balancer screenshot](https://raw.githubusercontent.com/Toomean/devops-for-programmers-project-lvl2/main/.github/images/balancer.png)
 
-[Balancer URL](hexlet.project-2.toomean.com)
+[Balancer URL](https://hexlet.project-2.toomean.com)
