@@ -5,7 +5,7 @@
     image: redmine:{{ redmine_version }}
     state: started
     restart: yes
-    ports:
+    published_ports:
       - 80:{{ redmine_app_port }}
     env:
       REDMINE_DB_POSTGRES: "{{ redmine_db_postgres }}"
