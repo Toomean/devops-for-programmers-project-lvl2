@@ -1,6 +1,6 @@
 ---
 - hosts: all
   roles:
-    - webservers
+    - geerlingguy.pip
     - redmine
     - monitoring

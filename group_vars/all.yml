@@ -1,2 +1,4 @@
 ---
 redmine_app_port: 3000
+pip_install_packages:
+  - name: docker

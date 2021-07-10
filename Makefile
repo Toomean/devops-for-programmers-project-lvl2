@@ -1,6 +1,6 @@
-deploy: install-deps run-playbook
+deploy: setup run-playbook
 
-install-deps:
+setup:
 	ansible-galaxy install -r requirements.yml
 
 run-playbook:
