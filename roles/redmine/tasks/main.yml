@@ -1,15 +1,15 @@
 ---
+- name: Create .env For Containers
+  template:
+    src: env.j2
+    dest: '.env'
+
 - name: Run Redmine Container
-  community.docker.docker_container:
+  docker_container:
     name: redmine
     image: redmine:{{ redmine_version }}
     state: started
     restart: yes
     published_ports:
       - 80:{{ redmine_app_port }}
-    env:
-      REDMINE_DB_POSTGRES: "{{ redmine_db_postgres }}"
-      REDMINE_DB_PORT: "{{ redmine_db_port }}"
-      REDMINE_DB_USERNAME: "{{ redmine_db_username }}"
-      REDMINE_DB_PASSWORD: "{{ redmine_db_password }}"
-      REDMINE_DB_DATABASE: "{{ redmine_db_database }}"
+    env_file: .env

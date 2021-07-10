@@ -1,7 +1,2 @@
-redmine_db_postgres : ""
-redmine_db_port     : ""
-redmine_db_username : ""
-redmine_db_password : ""
-redmine_db_database : ""
-
+---
 redmine_version     : "4.2.1-alpine"
