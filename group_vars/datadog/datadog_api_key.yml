@@ -1,15 +1,3 @@
----
-datadog_site: "datadoghq.eu"
-
-datadog_checks:
-  http_check:
-    init_config:
-    instances:
-      - name: Application health check status
-        url: http://localhost:{{ redmine_app_port }}
-        timeout: 5
-        method: GET
-
 datadog_api_key: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   66366437353438666561366338386262633834613536326338386163633037656563336262303764
