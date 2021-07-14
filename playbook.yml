@@ -1,8 +1,5 @@
 ---
 - hosts: all
-  vars:
-    pip_install_packages:
-      - name: docker
 
   # https://stackoverflow.com/questions/41535838/how-to-run-apt-update-and-upgrade-via-ansible-shell
   pre_tasks:
