@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Install pip and docker-py, Install and run datadog, Run docker redmine containers
+  hosts: all
 
   # https://stackoverflow.com/questions/41535838/how-to-run-apt-update-and-upgrade-via-ansible-shell
   pre_tasks:
