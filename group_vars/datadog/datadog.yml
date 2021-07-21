@@ -10,4 +10,4 @@ datadog_checks:
         timeout: 5
         method: GET
 
-datadog_api_key: {{ vault_datadog_api_key }}
+datadog_api_key: "{{ vault_datadog_api_key }}"
